@@ -59,6 +59,13 @@ const App = () => {
         <div className="p2">Player 2: {p2Total}</div>
       </div>
       <div className="message">{message}</div>
+      <div className="winner">
+        {p1Total >= 30
+          ? `Player 1 is the Winner!`
+          : p2Total >= 30
+          ? `Player 2 is the Winner!`
+          : ""}
+      </div>
     </div>
   );
 };

@@ -28,6 +28,11 @@
 .message {
   margin-top: 2rem;
 }
+.winner {
+  margin-top: 3rem;
+  font-weight: bold;
+  font-size: 30px;
+}
 
 .App-logo {
   height: 40vmin;
