@@ -22,6 +22,15 @@ const App = () => {
         setp2Total(p2Total - subtractNumber);
         setturn(!turn);
       }
+    } else if (randomNumber === 6) {
+      message = `You rolled 6, go again!`;
+      if (turn) {
+        setp1Total(p1Total + randomNumber);
+        setturn(turn);
+      } else {
+        setp2Total(p2Total + randomNumber);
+        setturn(turn);
+      }
     } else {
       if (turn) {
         setp1Total(p1Total + randomNumber);
@@ -33,7 +42,7 @@ const App = () => {
     }
   };
 
-  console.log(dice);
+  console.log(message);
 
   return (
     <div className="App">
