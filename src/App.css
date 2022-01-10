@@ -1,5 +1,32 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+}
+
+.turn {
+  font-size: 30px;
+}
+.dice-btn {
+  border: solid blue 2px;
+  border-radius: 5px;
+  width: 150px;
+  background-color: transparent;
+  padding: 0.5rem;
+  margin-top: 3rem;
+}
+.dice {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.score {
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.message {
+  margin-top: 2rem;
 }
 
 .App-logo {

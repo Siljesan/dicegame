@@ -47,14 +47,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <div>It is {turn ? "Player 1's turn" : "Player 2's turn"}</div>
-      <button className="p1-btn" onClick={getRandomNumber}>
+      <div className="turn">
+        It is {turn ? "Player 1's turn" : "Player 2's turn"}
+      </div>
+      <button className="dice-btn" onClick={getRandomNumber}>
         Roll dice
       </button>
       <div className="dice">Dice: {dice}</div>
-      <div className="p1">Player 1: {p1Total}</div>
-      <div className="p2">Player 2: {p2Total}</div>
-      <div>{message}</div>
+      <div className="score">
+        <div className="p1">Player 1: {p1Total}</div>
+        <div className="p2">Player 2: {p2Total}</div>
+      </div>
+      <div className="message">{message}</div>
     </div>
   );
 };
