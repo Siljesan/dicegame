@@ -7,15 +7,29 @@ const App = () => {
   const [dice, setdice] = useState(0);
   const [turn, setturn] = useState(true);
 
+  let message = ``;
+
   const getRandomNumber = () => {
-    const randomNumber = Math.floor(Math.random() * 6 + 1);
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
     setdice(randomNumber);
-    if (turn) {
-      setp1Total(p1Total + randomNumber);
-      setturn(!turn);
+    if (randomNumber === 1) {
+      const subtractNumber = Math.floor(Math.random() * 9) + 1;
+      message = `You rolled 1, ${subtractNumber} has been subtracted from your score.`;
+      if (turn) {
+        setp1Total(p1Total - subtractNumber);
+        setturn(!turn);
+      } else {
+        setp2Total(p2Total - subtractNumber);
+        setturn(!turn);
+      }
     } else {
-      setp2Total(p2Total + randomNumber);
-      setturn(!turn);
+      if (turn) {
+        setp1Total(p1Total + randomNumber);
+        setturn(!turn);
+      } else {
+        setp2Total(p2Total + randomNumber);
+        setturn(!turn);
+      }
     }
   };
 
@@ -30,6 +44,7 @@ const App = () => {
       <div className="dice">Dice: {dice}</div>
       <div className="p1">Player 1: {p1Total}</div>
       <div className="p2">Player 2: {p2Total}</div>
+      <div>{message}</div>
     </div>
   );
 };
