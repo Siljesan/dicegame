@@ -6,15 +6,16 @@ const App = () => {
   const [p2Total, setp2Total] = useState(0);
   const [dice, setdice] = useState(0);
   const [turn, setturn] = useState(true);
-
-  let message = ``;
+  const [message, setmessage] = useState("");
 
   const getRandomNumber = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     setdice(randomNumber);
     if (randomNumber === 1) {
       const subtractNumber = Math.floor(Math.random() * 9) + 1;
-      message = `You rolled 1, ${subtractNumber} has been subtracted from your score.`;
+      setmessage(
+        `You rolled 1, ${subtractNumber} has been subtracted from your score.`
+      );
       if (turn) {
         setp1Total(p1Total - subtractNumber);
         setturn(!turn);
@@ -23,7 +24,7 @@ const App = () => {
         setturn(!turn);
       }
     } else if (randomNumber === 6) {
-      message = `You rolled 6, go again!`;
+      setmessage(`You rolled 6, go again!`);
       if (turn) {
         setp1Total(p1Total + randomNumber);
         setturn(turn);
