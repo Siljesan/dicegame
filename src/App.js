@@ -7,6 +7,7 @@ const App = () => {
   const [dice, setdice] = useState(0);
   const [turn, setturn] = useState(true);
   const [message, setmessage] = useState("");
+  const [logMessage, setlogMessage] = useState("");
 
   const getRandomNumber = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
@@ -19,32 +20,40 @@ const App = () => {
       if (turn) {
         setp1Total(p1Total - subtractNumber);
         setturn(!turn);
+        setlogMessage(
+          logMessage + `Player 1 rolled: 1 and lost ${subtractNumber} points`
+        );
       } else {
         setp2Total(p2Total - subtractNumber);
         setturn(!turn);
+        setlogMessage(
+          logMessage + `Player 2 rolled: 1 and lost ${subtractNumber} points`
+        );
       }
     } else if (randomNumber === 6) {
       setmessage(`You rolled 6, go again!`);
       if (turn) {
         setp1Total(p1Total + randomNumber);
         setturn(turn);
+        setlogMessage(logMessage + `Player 1 rolled: 6`);
       } else {
         setp2Total(p2Total + randomNumber);
         setturn(turn);
+        setlogMessage(logMessage + `Player 2 rolled: 6`);
       }
     } else {
       setmessage("");
       if (turn) {
         setp1Total(p1Total + randomNumber);
         setturn(!turn);
+        setlogMessage(logMessage + `Player 1 rolled: ${randomNumber}`);
       } else {
         setp2Total(p2Total + randomNumber);
         setturn(!turn);
+        setlogMessage(logMessage + `Player 2 rolled: ${randomNumber}`);
       }
     }
   };
-
-  console.log(message);
 
   return (
     <div className="App">
@@ -66,6 +75,10 @@ const App = () => {
           : p2Total >= 30
           ? `Player 2 is the Winner!`
           : ""}
+      </div>
+      <div className="log">
+        <h3>Player log:</h3>
+        {logMessage}
       </div>
     </div>
   );
