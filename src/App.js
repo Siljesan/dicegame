@@ -33,6 +33,7 @@ const App = () => {
         setturn(turn);
       }
     } else {
+      setmessage("");
       if (turn) {
         setp1Total(p1Total + randomNumber);
         setturn(!turn);
